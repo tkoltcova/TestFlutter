@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 
 class GetData{
   Future<List<Pictures>> get() async {
-    String url = 'https://jsonplaceholder.typicode.com/photos';
+    String url = 'https://jsonplaceholder.typicode.com/photos?_limit=24';
     final res = await http.get(Uri.parse(url));
 
     if(res.statusCode == 200){
@@ -14,4 +14,9 @@ class GetData{
       throw Exception('Error connect');
     }
   }
+}
+
+class PicturesRepository{
+  GetData _picturesProvider = GetData();
+  Future<List<Pictures>> getPictures() => _picturesProvider.get();
 }

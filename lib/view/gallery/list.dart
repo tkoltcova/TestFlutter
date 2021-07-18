@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_flutter/bloc/index.dart';
 import 'package:test_flutter/bloc/state.dart';
+import 'package:test_flutter/info/index.dart';
+import 'package:test_flutter/models/index.dart';
 
 class PictureList extends StatelessWidget {
   @override
@@ -20,26 +22,13 @@ class PictureList extends StatelessWidget {
         if (state is PictureLoadingState) {
           return Center(child: CircularProgressIndicator());
         }
-
         if (state is PictureLoadedState) {
-          return ListView.builder(
-            itemCount: state.loadedPicture.length,
-            itemBuilder: (context, index) => Container(
-              color: index % 2 == 0 ? Colors.white : Colors.blue[50],
-              child: ListTile(
-                leading: Text(
-                  'ID: ${state.loadedPicture[index].id}',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
-                title: Column(
-                  children: <Widget>[
-                    Text(
-                      '${state.loadedPicture[index].title}',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              ),
+          return GridView.count(
+            crossAxisCount: 2,
+            padding: EdgeInsets.all(10.0),
+            children: List.generate(
+              state.loadedPicture.length,
+              (index) => GridDecoration(layout: state.loadedPicture[index]),
             ),
           );
         }
@@ -54,6 +43,41 @@ class PictureList extends StatelessWidget {
         }
         return Container();
       },
+    );
+  }
+}
+
+class GridDecoration extends StatelessWidget {
+  final Pictures layout;
+
+  GridDecoration({required this.layout});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => InfoPage(
+            layout.albumId,
+            layout.id,
+            layout.title,
+            layout.url,
+            layout.thumbnailUrl,
+          ),
+        ),
+      ),
+      child: Card(
+        color: Colors.purple[100],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.network(layout.url.toString()),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

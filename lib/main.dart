@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:test_flutter/view/gallery/index.dart';
+import 'about-me/index.dart';
 import 'generated/l10n.dart';
 
 void main() {
@@ -20,6 +21,7 @@ class App extends StatelessWidget {
       supportedLocales: S.delegate.supportedLocales,
       routes: {
         '/': (context) => GalleryPage(),
+        '/about-me': (context) => AboutMePage(),
       },
     );
   }

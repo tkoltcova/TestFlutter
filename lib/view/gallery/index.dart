@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_flutter/bloc/event.dart';
 import 'package:test_flutter/bloc/index.dart';
+import 'package:test_flutter/drawer/index.dart';
+import 'package:test_flutter/generated/l10n.dart';
 import 'package:test_flutter/service/index.dart';
 import 'list.dart';
 
@@ -17,19 +19,16 @@ class _GalleryPageState extends State<GalleryPage>{
     return BlocProvider<PictureBloc>(
       create: (context) => PictureBloc(picturesRepository: pictures)..add(PictureLoadEvent()),
       child: Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
-          title: Text('Users List'),
-          centerTitle: true,
+          title: Text(S.of(context).title_app_bar),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            // ActionButtons(),
-
+          children: [
             Expanded(child: PictureList()),
           ],
         ),
+        drawer: DrawerMenu(),
       ),
     );
   }

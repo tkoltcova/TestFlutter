@@ -59,6 +59,56 @@ class S {
       args: [],
     );
   }
+
+  /// `About me`
+  String get title_about_me {
+    return Intl.message(
+      'About me',
+      name: 'title_about_me',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Id pictures`
+  String get title_id {
+    return Intl.message(
+      'Id pictures',
+      name: 'title_id',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Title`
+  String get title_head {
+    return Intl.message(
+      'Title',
+      name: 'title_head',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Image link`
+  String get title_url {
+    return Intl.message(
+      'Image link',
+      name: 'title_url',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get title_pop {
+    return Intl.message(
+      'Back',
+      name: 'title_pop',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

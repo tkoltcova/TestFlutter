@@ -1,3 +1,8 @@
 {
-  "title_app_bar": "Gallery"
+  "title_app_bar": "Gallery",
+  "title_about_me": "About me",
+  "title_id": "Id pictures",
+  "title_head": "Title",
+  "title_url": "Image link",
+  "title_pop": "Back"
 }

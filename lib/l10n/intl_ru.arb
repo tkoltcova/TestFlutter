@@ -1,3 +1,8 @@
 {
-  "title_app_bar": "Галерея"
+  "title_app_bar": "Галерея",
+  "title_about_me": "Обо мне",
+  "title_id": "Id картинки",
+  "title_head": "Заголовок",
+  "title_url": "Ссылка на картинку",
+  "title_pop": "Назад"
 }

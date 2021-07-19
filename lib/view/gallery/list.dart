@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:test_flutter/bloc/index.dart';
 import 'package:test_flutter/bloc/state.dart';
-import 'package:test_flutter/info/index.dart';
+import 'package:test_flutter/generated/l10n.dart';
+import 'package:test_flutter/view/gallery/info.dart';
 import 'package:test_flutter/models/index.dart';
 
 class PictureList extends StatelessWidget {
@@ -13,7 +14,7 @@ class PictureList extends StatelessWidget {
         if (state is PictureEmptyState) {
           return Center(
             child: Text(
-              'No data received. Press button "Load"',
+              S.of(context).picture_empty_state,
               style: TextStyle(fontSize: 20.0),
             ),
           );
@@ -23,12 +24,52 @@ class PictureList extends StatelessWidget {
           return Center(child: CircularProgressIndicator());
         }
         if (state is PictureLoadedState) {
-          return GridView.count(
-            crossAxisCount: 2,
-            padding: EdgeInsets.all(10.0),
-            children: List.generate(
-              state.loadedPicture.length,
-              (index) => GridDecoration(layout: state.loadedPicture[index]),
+          _title(String title) {
+            return Container(
+              height: 50,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '$title',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+            );
+          }
+
+          Widget _list(int start, int end) {
+            return Container(
+              height: MediaQuery.of(context).size.height * 0.75,
+              child: GridView.count(
+                physics: NeverScrollableScrollPhysics(),
+                crossAxisCount: 2,
+                children: List.generate(
+                  6,
+                  (index) => GridDecoration(
+                      layout: state.loadedPicture.sublist(start, end)[index]),
+                ),
+              ),
+            );
+          }
+
+          return Container(
+            color: Colors.grey[300],
+            child: ListView(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              children: <Widget>[
+                Column(
+                  children: [_title(S.of(context).category_1), _list(0, 6)],
+                ),
+                Column(
+                  children: [_title(S.of(context).category_2), _list(6, 12)],
+                ),
+                Column(
+                  children: [_title(S.of(context).category_3), _list(12, 18)],
+                ),
+                Column(
+                  children: [_title(S.of(context).category_4), _list(18, 24)],
+                ),
+              ],
             ),
           );
         }
@@ -36,7 +77,7 @@ class PictureList extends StatelessWidget {
         if (state is PictureErrorState) {
           return Center(
             child: Text(
-              'Error fetching users',
+              S.of(context).picture_error_state,
               style: TextStyle(fontSize: 20.0),
             ),
           );
@@ -68,12 +109,11 @@ class GridDecoration extends StatelessWidget {
         ),
       ),
       child: Card(
-        color: Colors.purple[100],
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Image.network(layout.url.toString()),
+              Image.network(layout.url),
             ],
           ),
         ),

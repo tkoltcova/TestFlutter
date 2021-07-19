@@ -109,6 +109,66 @@ class S {
       args: [],
     );
   }
+
+  /// `No data received`
+  String get picture_empty_state {
+    return Intl.message(
+      'No data received',
+      name: 'picture_empty_state',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error fetching users`
+  String get picture_error_state {
+    return Intl.message(
+      'Error fetching users',
+      name: 'picture_error_state',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category №1`
+  String get category_1 {
+    return Intl.message(
+      'Category №1',
+      name: 'category_1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category №2`
+  String get category_2 {
+    return Intl.message(
+      'Category №2',
+      name: 'category_2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category №3`
+  String get category_3 {
+    return Intl.message(
+      'Category №3',
+      name: 'category_3',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Category №4`
+  String get category_4 {
+    return Intl.message(
+      'Category №4',
+      name: 'category_4',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

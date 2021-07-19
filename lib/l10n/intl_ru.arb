@@ -4,5 +4,13 @@
   "title_id": "Id картинки",
   "title_head": "Заголовок",
   "title_url": "Ссылка на картинку",
-  "title_pop": "Назад"
+  "title_pop": "Назад",
+
+  "picture_empty_state" : "Никаких данных не получено",
+  "picture_error_state" : "Ошибка при получении пользователей",
+
+  "category_1": "Категория №1",
+  "category_2": "Категория №2",
+  "category_3": "Категория №3",
+  "category_4": "Категория №4"
 }

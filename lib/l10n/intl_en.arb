@@ -4,5 +4,13 @@
   "title_id": "Id pictures",
   "title_head": "Title",
   "title_url": "Image link",
-  "title_pop": "Back"
+  "title_pop": "Back",
+
+  "picture_empty_state" : "No data received",
+  "picture_error_state" : "Error fetching users",
+
+  "category_1": "Category №1",
+  "category_2": "Category №2",
+  "category_3": "Category №3",
+  "category_4": "Category №4"
 }

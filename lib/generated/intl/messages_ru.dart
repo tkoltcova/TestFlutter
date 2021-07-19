@@ -21,6 +21,14 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "category_1": MessageLookupByLibrary.simpleMessage("Категория №1"),
+        "category_2": MessageLookupByLibrary.simpleMessage("Категория №2"),
+        "category_3": MessageLookupByLibrary.simpleMessage("Категория №3"),
+        "category_4": MessageLookupByLibrary.simpleMessage("Категория №4"),
+        "picture_empty_state":
+            MessageLookupByLibrary.simpleMessage("Никаких данных не получено"),
+        "picture_error_state": MessageLookupByLibrary.simpleMessage(
+            "Ошибка при получении пользователей"),
         "title_about_me": MessageLookupByLibrary.simpleMessage("Обо мне"),
         "title_app_bar": MessageLookupByLibrary.simpleMessage("Галерея"),
         "title_head": MessageLookupByLibrary.simpleMessage("Заголовок"),

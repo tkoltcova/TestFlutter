@@ -33,6 +33,11 @@
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
+    if(useHtml) {
+      window.flutterWebRenderer = "html";
+    } else {
+      window.flutterWebRenderer = "canvaskit";
+    }
     function loadMainDartJs() {
       if (scriptLoaded) {
         return;

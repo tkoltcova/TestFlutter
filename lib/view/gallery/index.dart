@@ -25,7 +25,7 @@ class _GalleryPageState extends State<GalleryPage>{
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(child: PictureList()),
+              Expanded(child: PictureList())
           ],
         ),
         drawer: DrawerMenu(),

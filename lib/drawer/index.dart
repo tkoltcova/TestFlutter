@@ -5,7 +5,7 @@ import 'package:test_flutter/generated/l10n.dart';
 class DrawerMenu extends StatelessWidget {
   _profile() {
     return Container(
-      padding: EdgeInsets.only(top: 50, left: 10),
+      padding: EdgeInsets.only(left: 25, right: 25, top: 50),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -41,6 +41,20 @@ class DrawerMenu extends StatelessWidget {
     );
   }
 
+  _item(String title, Icon icon, void func()) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10),
+      child: ListTile(
+        onTap: () => func(),
+        leading: icon,
+        title: Text(
+          title,
+          style: TextStyle(fontSize: 18),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -53,42 +67,16 @@ class DrawerMenu extends StatelessWidget {
             Divider(
               color: Colors.grey,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/'),
-                child: Row(
-                  children: [
-                    Icon(Icons.folder_outlined),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20),
-                      child: Text(
-                        S.of(context).title_app_bar,
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    )
-                  ],
-                ),
-              ),
+            _item(
+              S.of(context).title_app_bar,
+              Icon(Icons.folder_outlined),
+              () => Navigator.pushNamed(context, '/'),
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              child: GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/about-me'),
-                child: Row(
-                  children: [
-                    Icon(Icons.people),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20),
-                      child: Text(
-                        S.of(context).title_about_me,
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+            _item(
+              S.of(context).title_about_me,
+              Icon(Icons.people),
+              () => Navigator.pushNamed(context, '/about-me'),
+            )
           ],
         ),
       ),

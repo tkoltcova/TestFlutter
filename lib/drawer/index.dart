@@ -9,13 +9,10 @@ class DrawerMenu extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Material(
-            child: Icon(
-              Icons.person,
-              size: 70,
-            ),
-            borderRadius: BorderRadius.circular(100),
-            color: Colors.grey[200],
+          CircleAvatar(
+            backgroundImage: NetworkImage(
+                "https://sun9-66.userapi.com/impf/c631923/v631923940/2daf7/j007a20dla8.jpg?size=1438x2160&quality=96&sign=ab40027ca22542413f2891bc0423e1c0&type=album"),
+            radius: 50,
           ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: 10),

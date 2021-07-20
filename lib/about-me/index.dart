@@ -3,13 +3,14 @@ import 'package:test_flutter/drawer/index.dart';
 import 'package:test_flutter/generated/l10n.dart';
 
 class AboutMePage extends StatelessWidget {
-  Widget _infoRow(Icon icon, String head, String description) {
+  Widget _infoRow(Icon icon, String head, String description, context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       child: Table(
         children: [
           TableRow(children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 icon,
                 Padding(
@@ -17,6 +18,7 @@ class AboutMePage extends StatelessWidget {
                   child: Text(
                     head,
                     style: TextStyle(fontSize: 18),
+                    textDirection: TextDirection.ltr,
                   ),
                 ),
               ],
@@ -56,14 +58,10 @@ class AboutMePage extends StatelessWidget {
                 child: Center(
                   child: Column(
                     children: [
-                      Material(
-                        child: Icon(
-                          Icons.person,
-                          size: 120,
-                          color: Colors.blue,
-                        ),
-                        borderRadius: BorderRadius.circular(100),
-                        color: Colors.indigo,
+                      CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            "https://sun9-66.userapi.com/impf/c631923/v631923940/2daf7/j007a20dla8.jpg?size=1438x2160&quality=96&sign=ab40027ca22542413f2891bc0423e1c0&type=album"),
+                        radius: 70,
                       ),
                       head(
                         'Кольцова',
@@ -83,6 +81,7 @@ class AboutMePage extends StatelessWidget {
               ),
               'Место работы',
               'ООО"Воздушные Ворота Северная Столица',
+              context,
             ),
             _infoRow(
               Icon(
@@ -91,6 +90,7 @@ class AboutMePage extends StatelessWidget {
               ),
               'Должность',
               'Старший инженер',
+              context,
             ),
             _infoRow(
               Icon(
@@ -99,6 +99,7 @@ class AboutMePage extends StatelessWidget {
               ),
               'Стаж работы',
               '2 года и 11 месяцев',
+              context,
             ),
             _infoRow(
               Icon(
@@ -107,6 +108,7 @@ class AboutMePage extends StatelessWidget {
               ),
               'Опыт',
               'Опыт в коммерческой разработке чуть меньше года. Изучение и работа с Dart/Flutter началась с Ноября 2020 (в проект нужен был человек, который будет писать мобильное приложение)',
+              context,
             ),
             _infoRow(
               Icon(
@@ -115,6 +117,7 @@ class AboutMePage extends StatelessWidget {
               ),
               'О себе',
               'Добросовестно подхожу к выполнению задачи. Сторонник практики, а не теории. Ответственная и коммуникабельная',
+              context,
             ),
           ],
         ),

@@ -39,8 +39,9 @@ class PictureList extends StatelessWidget {
 
           Widget _list(int start, int end) {
             return Container(
-              height: MediaQuery.of(context).size.height * 0.75,
+                width: double.infinity,
               child: GridView.count(
+                shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 crossAxisCount: 2,
                 children: List.generate(
